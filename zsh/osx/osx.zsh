@@ -1,6 +1,6 @@
 # OS X specific settings
 
-export PATH=~/.homebrew/bin:~/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=~/.homebrew/bin:~/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~/Development/android-sdk-mac_86:$PATH
 export SVN_EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
 export EDITOR='mate'
