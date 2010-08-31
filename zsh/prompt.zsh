@@ -38,7 +38,7 @@ host_prompt_color() {
     ;;;
     
     *)
-      echo "%{$fg[blue]%}"
+      echo "%{\e[1;36m%}"
     ;;;
   esac
 }
