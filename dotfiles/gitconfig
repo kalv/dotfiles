@@ -1,6 +1,6 @@
 [user]
-	name = Tom Ward
-	email = tom@popdog.net
+	name = Kalvir Sandhu
+	email = kalv@kalv.co.uk
 [core]
 	excludesfile = ~/.gitignore
 [color]
@@ -18,5 +18,3 @@
   ps = push
   pl = pull
   waa = "!sh -c 'git diff -- \"$@\" | git apply --cached --whitespace=fix; git checkout -- ${1-.} \"$@\"' -"
-[gui]
-	recentrepo = /Users/tomw/Projects/tagmap

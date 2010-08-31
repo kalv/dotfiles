@@ -2,9 +2,9 @@
 :bulk_threshold: 1000
 gem: --no-ri --no-rdoc
 :verbose: true
-gemcutter_key: e00117331e12035afa14a9797018c19f
 :benchmark: false
 :update_sources: true
 :backtrace: false
 :sources:
 - http://gemcutter.org/
+- http://gems.github.com
