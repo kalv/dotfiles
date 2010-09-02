@@ -6,6 +6,7 @@ export GIT_EDITOR='mate -wl1'
 export EDITOR='mate'
 export GEM_OPEN_EDITOR='mate'
 export LESSEDIT='mate -l %lm %f'
+export COMMAND_MODE=legacy
 
 # Use OS X version of SSH with agent forwarding
 alias ssh='/usr/bin/ssh -A'
