@@ -1,12 +1,20 @@
 # OS X specific settings
 
-export PATH=~/.homebrew/bin:~/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~/Development/android-sdk-mac_86:$PATH
+export PATH=/usr/local/share/npm/bin:~/.homebrew/bin:~/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~/Development/android-sdk-mac_86:$PATH
 export SVN_EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
-export EDITOR='mate'
-export GEM_OPEN_EDITOR='mate'
+export EDITOR='mvim' #EDITOR='mate'
+#export GEM_OPEN_EDITOR='mate'
 export LESSEDIT='mate -l %lm %f'
 export COMMAND_MODE=legacy
+
+# EC2
+export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
+export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
+export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
+export EC2_AMITOOL_HOME="/usr/local/Cellar/ec2-ami-tools/1.3-45758/jars"
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.3-53907/jars"
+export EC2_URL="https://eu-west-1.ec2.amazonaws.com/"
 
 # Use OS X version of SSH with agent forwarding
 alias ssh='/usr/bin/ssh -A'

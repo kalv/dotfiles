@@ -1,5 +1,5 @@
 .DS\_Store
 .svn
 *.sqlite3
-.rake_tasks~
-TODO
+.rake_tasks
+#TODO
