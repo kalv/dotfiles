@@ -23,6 +23,11 @@ git_prompt_info() {
   echo "($(git_diff_color)${ref#refs/heads/}$(host_prompt_color))"
 }
 
+git_pair() {
+  pair=$(git config pair.initials) || return
+  echo "%{$fg[green]%}|${pair}|$(host_prompt_color)"
+}
+
 autoload -U colors
 colors
 
@@ -43,4 +48,4 @@ host_prompt_color() {
   esac
 }
 
-export PROMPT=$'$(host_prompt_color)%n@%m:%~$(git_prompt_info)$ %{$fg[white]%}'
+export PROMPT=$'$(host_prompt_color)%n@%m:%~$(git_prompt_info)$(git_pair)$ %{$fg[white]%}'

@@ -3,8 +3,8 @@
 export PATH=/usr/local/share/npm/bin:~/.homebrew/bin:~/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~/Development/android-sdk-mac_86:$PATH
 export SVN_EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
-export EDITOR='mvim' #EDITOR='mate'
-#export GEM_OPEN_EDITOR='mate'
+export EDITOR='mate'
+export GEM_OPEN_EDITOR='mate'
 export LESSEDIT='mate -l %lm %f'
 export COMMAND_MODE=legacy
 
