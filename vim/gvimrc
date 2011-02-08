@@ -8,14 +8,14 @@ if has("gui_macvim")
   "map <D-t> :CommandT<CR>
 
   " Command-Shift-F for Ack
-  macmenu Window.Toggle\ Full\ Screen\ Mode key=<nop>
-  map <D-F> :Ack<space>
+  "macmenu Window.Toggle\ Full\ Screen\ Mode key=<nop>
+  "map <D-F> :Ack<space>
 
   " Command-e for ConqueTerm
-  map <D-e> :call StartTerm()<CR>
+  " map <D-e> :call StartTerm()<CR>
 
   " Command-/ to toggle comments
-  map <D-/> <plug>NERDCommenterToggle<CR>
+  " map <D-/> <plug>NERDCommenterToggle<CR>
 endif
 
 " Start without the toolbar
@@ -26,57 +26,17 @@ set guioptions-=T
 color tir_black
 
 " Set up font
-set guifont=MesloLGM:h14
+set guifont=MesloLGM:h15
 
 " ConqueTerm wrapper
-function StartTerm()
-  execute 'ConqueTerm ' . $SHELL . ' --login'
-  setlocal listchars=tab:\ \ 
-endfunction
+"function StartTerm()
+"  execute 'ConqueTerm ' . $SHELL . ' --login'
+"  setlocal listchars=tab:\ \ 
+"endfunction
 
 " Project Tree
-autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+" autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 
-
-" If the parameter is a directory, cd into it
-function s:CdIfDirectory(directory)
-  let explicitDirectory = isdirectory(a:directory)
-  let directory = explicitDirectory || empty(a:directory)
-
-  if explicitDirectory
-    exe "cd " . a:directory
-  endif
-
-  if directory
-    NERDTree
-    wincmd p
-    bd
-  endif
-endfunction
-
-" NERDTree utility function
-function s:UpdateNERDTree(...)
-  let stay = 0
-
-  if(exists("a:1"))
-    let stay = a:1
-  end
-
-  if exists("t:NERDTreeBufName")
-    let nr = bufwinnr(t:NERDTreeBufName)
-    if nr != -1
-      exe nr . "wincmd w"
-      exe substitute(mapcheck("R"), "<CR>", "", "")
-      if !stay
-        wincmd p
-      end
-    endif
-  endif
-
-  if exists("CommandTFlush")
-    CommandTFlush
-  endif
-endfunction
 
 " Utility functions to create file commands
 function s:CommandCabbr(abbreviation, expansion)
