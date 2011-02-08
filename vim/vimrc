@@ -25,10 +25,6 @@ set wildignore+=*.o,*.obj,.git,*.rbc
 " Status bar
 set laststatus=2
 
-" NERDTree configuration
-" let NERDTreeIgnore=['\.rbc$', '\~$']
-" map <Leader>n :NERDTreeToggle<CR>
-
 " Command-T configuration
 let g:CommandTMaxHeight=20
 
@@ -110,8 +106,18 @@ endif
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
-" default map leader-t for run ruby test
-map \t :w\|:!ruby -I test % -v<cr>
+" default map leader-r for run ruby test
+map \r :w\|:!ruby -Itest % <cr>
 
 " change the highlight colors for line numbers
 highlight LineNr term=bold cterm=NONE ctermfg=LightGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+" disable adding a new line at the end of file - don't want extra lines on
+" commits
+"autocmd FileType erb setlocal noeol binary fileformat=dos
+set noeol
+set binary
+set fileformats+=dos
+
+" Easily run up an ack search using Leader-f
+map <Leader>f :Ack<space>
