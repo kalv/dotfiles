@@ -1,11 +1,11 @@
 # OS X specific settings
 
 export PATH=/usr/local/share/npm/bin:~/.homebrew/bin:~/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~/Development/android-sdk-mac_86:$PATH
-export SVN_EDITOR='mvim' #'mate -w'
-export GIT_EDITOR='mvim' #'mate -wl1'
-export EDITOR='mvim' #''mate'
-export GEM_OPEN_EDITOR='mvim' #'mate'
-export LESSEDIT='mvim' #'mate -l %lm %f'
+export SVN_EDITOR='mate -w'
+export GIT_EDITOR='mate -wl1'
+export EDITOR='mate'
+export GEM_OPEN_EDITOR='mate'
+export LESSEDIT='mate -l %lm %f'
 export COMMAND_MODE=legacy
 
 # EC2
