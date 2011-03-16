@@ -8,6 +8,13 @@ export GEM_OPEN_EDITOR='mate'
 export LESSEDIT='mate -l %lm %f'
 export COMMAND_MODE=legacy
 
+# ree
+export RUBY_HEAP_MIN_SLOTS=800000
+export RUBY_HEAP_FREE_MIN=100000
+export RUBY_HEAP_SLOTS_INCREMENT=300000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=79000000
+
 # EC2
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
 export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
