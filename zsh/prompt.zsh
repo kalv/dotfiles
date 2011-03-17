@@ -1,12 +1,12 @@
 git_diff_color() {
   changes=$(git status)
   case $changes in
-    *Untracked*)
+    *changes*)
       echo "%{$fg[red]%}"
       return
     ;;;
     
-    *updated*)
+    *Untracked*)
       echo "%{$fg[red]%}"
       return
     ;;;
