@@ -6,5 +6,5 @@ gem: --no-ri --no-rdoc
 :update_sources: true
 :backtrace: false
 :sources:
-- http://gemcutter.org/
-- http://gems.github.com
+- http://rubygems.org
+- http://gemcutter.org
