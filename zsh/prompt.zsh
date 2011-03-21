@@ -43,9 +43,9 @@ host_prompt_color() {
     ;;;
     
     *)
-      echo "%{\e[1;36m%}"
+      echo "%{\e[0;36m%}"
     ;;;
   esac
 }
 
-export PROMPT=$'$(host_prompt_color)%n@%m:%~$(git_prompt_info)$(git_pair)$ %{$fg[white]%}'
+export PROMPT=$'$(host_prompt_color)%n@%m:%~$(git_prompt_info)$(git_pair)$ %{\e[0m%}'
