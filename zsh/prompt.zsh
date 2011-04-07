@@ -10,7 +10,10 @@ git_diff_color() {
       echo "%{$fg[red]%}"
       return
     ;;;
-    
+    *Unmerged*)
+      echo "%{$fg[red]%}"
+      return
+    ;;;
     *committed*)
       echo "%{$fg[green]%}"
       return
