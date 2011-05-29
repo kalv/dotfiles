@@ -1,4 +1,4 @@
 --type-add=ruby=.haml,.rake,.feature,.pp
 --type-add=js=.js
---type-add=css=.less,.sass
+--type-add=css=.less,.sass,.scss
 --ignore-dir=.bundle
