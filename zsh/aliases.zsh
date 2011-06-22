@@ -8,15 +8,11 @@ alias ll="ls -al"
 alias la='ls -A'
 
 # git
-alias gl='git pull'
-alias gp='git push'
-alias gd='git diff'
-alias gc='git commit'
-alias gca='git commit -a'
-alias gco='git checkout'
-alias gb='git branch'
-alias gs='git status -sb'
-alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+alias d='git diff'
+alias c='git commit'
+alias ca='git commit -a'
+alias s='git status -sb'
 
+# bundler
 alias be='bundle exec'
 alias bi='bundle install'
