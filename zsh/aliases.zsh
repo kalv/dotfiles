@@ -1,4 +1,3 @@
-alias g='git'
 alias fr='freerange'
 
 # ls
