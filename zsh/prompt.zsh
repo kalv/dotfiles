@@ -21,9 +21,19 @@ git_diff_color() {
   esac
 }
 
+git_sync() {
+  changes=$(git status)
+  case $changes in
+    *ahead*)
+      echo "|%{$fg[red]%}▲%{\e[0;36m%}"
+      return
+    ;;
+  esac
+}
+
 git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "($(git_diff_color)${ref#refs/heads/}$(host_prompt_color))"
+  echo "($(git_diff_color)${ref#refs/heads/}$(host_prompt_color)$(git_sync))$(git_pair)"
 }
 
 git_pair() {
@@ -51,4 +61,4 @@ host_prompt_color() {
   esac
 }
 
-export PROMPT=$'$(host_prompt_color)%~$(git_prompt_info)$(git_pair)$ %{\e[0m%}'
+export PROMPT=$'$(host_prompt_color)%~$(git_prompt_info)$ %{\e[0m%}'
