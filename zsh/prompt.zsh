@@ -51,4 +51,4 @@ host_prompt_color() {
   esac
 }
 
-export PROMPT=$'$(host_prompt_color)%~$(git_prompt_info)$(git_pair)➤ %{\e[0m%}'
+export PROMPT=$'$(host_prompt_color)%~$(git_prompt_info)$(git_pair)$ %{\e[0m%}'
