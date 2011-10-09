@@ -13,7 +13,7 @@ autoload -U ~/.dotfiles/zsh/functions/*(:t)
 setopt LOCAL_OPTIONS # allow functions to have local options
 setopt LOCAL_TRAPS # allow functions to have local traps
 
-cdpath=(~ ~/Development/apps ~/Development/ruby ~/Development/freerange ~/Development/cocoa ~/Development/javascript)
+cdpath=(~ ~/Development/apps ~/Development/ruby)
 
 setopt autopushd # Use pushd for all directory changing
 
