@@ -5,3 +5,4 @@ for found in ~/.dotfiles/dotfiles/*; do
 done
 
 ln -fs ~/.dotfiles/vim ~/.vim
+chsh -s /bin/zsh
