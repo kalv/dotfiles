@@ -1,6 +1,6 @@
 # OS X specific settings
 
-export PATH=/usr/local/bin:~/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:~/usr/local/bin:/usr/local/sbin:/users/kalv/Development/android-sdk-mac_x86/tools:/users/kalv/Development/android-sdk-mac_x86/platform-tools:$PATH
 export SVN_EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
 export EDITOR='mate'
