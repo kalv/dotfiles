@@ -3,6 +3,7 @@
 	email = kalv@kalv.co.uk
 [core]
 	excludesfile = ~/.gitignore
+	quotepath = false
 [color]
 	diff = auto
 	status = auto
