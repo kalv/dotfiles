@@ -5,3 +5,12 @@ set guioptions-=T
 set fuoptions=maxhorz,maxvert
 
 let g:buffergator_viewport_split_policy = "T"
+
+" Easily split off a new vertical split window
+nmap <leader>v :vsplit<cr>
+
+" Quickly navigate around windows using Command and arrows
+nmap <D-Up> <C-W>j
+nmap <D-Down> <C-W>k
+nmap <D-Left> <C-W>h
+nmap <D-Right> <C-W>l
