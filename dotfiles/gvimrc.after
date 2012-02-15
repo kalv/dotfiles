@@ -1,0 +1,7 @@
+set guifont=Menlo:h12
+color ir_black
+
+set guioptions-=T
+set fuoptions=maxhorz,maxvert
+
+let g:buffergator_viewport_split_policy = "T"
