@@ -10,7 +10,7 @@ let g:buffergator_viewport_split_policy = "T"
 nmap <leader>v :vsplit<cr>
 
 " Quickly navigate around windows using Command and arrows
-nmap <D-Up> <C-W>j
-nmap <D-Down> <C-W>k
-nmap <D-Left> <C-W>h
-nmap <D-Right> <C-W>l
+nmap <D-A-Up> <C-W>j
+nmap <D-A-Down> <C-W>k
+nmap <D-A-Left> <C-W>h
+nmap <D-A-Right> <C-W>l
