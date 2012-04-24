@@ -1,0 +1,11 @@
+let g:buffergator_viewport_split_policy = "T"
+
+" Easily split off a new vertical split window
+nmap <leader>v :vsplit<cr>
+
+" tab control
+nmap <Leader>] :tabn<cr>
+nmap <Leader>[ :tabp<cr>
+nmap <Leader>t :tabe .<cr>
+
+color railscasts
