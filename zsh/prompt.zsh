@@ -5,7 +5,6 @@ git_diff_color() {
       echo "%{$fg[red]%}"
       return
     ;;;
-    
     *Untracked*)
       echo "%{$fg[red]%}"
       return
@@ -19,13 +18,14 @@ git_diff_color() {
       return
     ;;;
   esac
+  echo "%{$fg[cyan]%}"
 }
 
 git_sync() {
   changes=$(git status)
   case $changes in
     *ahead*)
-      echo "|%{$fg[red]%}▲%{\e[0;36m%}"
+      echo "|%{$fg[red]%}▲%{$fg[cyan]%}"
       return
     ;;
   esac
@@ -33,13 +33,9 @@ git_sync() {
 
 git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "($(git_diff_color)${ref#refs/heads/}$(host_prompt_color)$(git_sync))$(git_pair)"
+  echo " %{$fg[red]%}git:%{$fg[cyan]%}$(git_diff_color)${ref#refs/heads/}$(git_sync)"
 }
 
-git_pair() {
-  pair=$(git config pair.initials) || return
-  echo "%{$fg[green]%}|${pair}|$(host_prompt_color)"
-}
 
 autoload -U colors
 colors
@@ -49,16 +45,5 @@ setopt prompt_subst
 # If we're running in an ssh session, use a different colour 
 # than if we're on a local machine
 
-host_prompt_color() {
-  case ${SSH_CLIENT} in 
-    [0-9]*)
-      echo "%{$fg[yellow]%}"
-    ;;;
-    
-    *)
-      echo "%{\e[0;36m%}"
-    ;;;
-  esac
-}
 
-export PROMPT=$'$(host_prompt_color)%~$(git_prompt_info)$ %{\e[0m%}'
+export PROMPT=$'%{$fg[red]%}➜ %{$fg[cyan]%}%~$(git_prompt_info)  %{\e[0m%}'
