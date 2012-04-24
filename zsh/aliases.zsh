@@ -1,5 +1,3 @@
-alias fr='freerange'
-
 # ls
 alias ls="ls -F"
 alias l="ls -lAh"
