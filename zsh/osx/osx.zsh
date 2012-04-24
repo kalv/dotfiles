@@ -29,9 +29,6 @@ alias sftp='/usr/bin/sftp'
 
 alias ls='ls -ahGl'
 
-fpath=(~/.dotfiles/zsh/osx/functions $fpath)
-autoload -U ~/.dotfiles/zsh/osx/functions/*(:t)
-
 case $OSTYPE in
   darwin10*)
 		export ARCHFLAGS="-arch x86_64"
