@@ -46,4 +46,4 @@ setopt prompt_subst
 # than if we're on a local machine
 
 
-export PROMPT=$'%{$fg[red]%}➜ %{$fg[cyan]%}%~$(git_prompt_info)  %{\e[0m%}'
+export PROMPT=$'%{$fg[red]%}➜ %{$fg[cyan]%}%c$(git_prompt_info)  %{\e[0m%}'

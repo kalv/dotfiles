@@ -1,4 +1,4 @@
-set guifont=Monaco:h14
+set guifont=Meslo\ LG\ M:h12
 color ir_black
 
 set guioptions-=T
