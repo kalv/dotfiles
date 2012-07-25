@@ -6,7 +6,7 @@ export EDITOR='subl'
 export GEM_OPEN_EDITOR='subl'
 export COMMAND_MODE=legacy
 
-export NODE_PATH=/usr/local/lib/node
+export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
 
 # ree
 export RUBY_HEAP_MIN_SLOTS=800000
