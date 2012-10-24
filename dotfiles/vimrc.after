@@ -1,0 +1,9 @@
+" set up the colors
+set background=dark
+colorscheme solarized
+
+" buffergator split policy
+let g:buffergator_viewport_split_policy = "T"
+let g:buffergator_split_size = 20
+
+nmap <leader>b :BuffergatorOpen<cr>
