@@ -6,6 +6,9 @@ nmap <leader>v :vsplit<cr>
 " tab control
 nmap <Leader>] :tabn<cr>
 nmap <Leader>[ :tabp<cr>
-nmap <Leader>t :tabe .<cr>
+nmap <Leader>t :tabnew<cr>
 
 color railscasts
+set nonumber
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,log

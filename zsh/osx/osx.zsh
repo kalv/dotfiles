@@ -1,8 +1,8 @@
 # OS X specific settings
 
 export PATH=/Users/`whoami`/.dotfiles/bin:/usr/local/bin:~/usr/local/bin:/usr/local/sbin:/users/kalv/Development/android-sdk-mac_x86/tools:/users/kalv/Development/android-sdk-mac_x86/platform-tools:$PATH
-export GIT_EDITOR='subl'
-export EDITOR='subl'
+export GIT_EDITOR='vim'
+export EDITOR='vim'
 export GEM_OPEN_EDITOR='subl'
 export COMMAND_MODE=legacy
 
@@ -28,6 +28,11 @@ alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
 
 alias ls='ls -ahGl'
+
+# sbt
+export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
+
+export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20
 
 case $OSTYPE in
   darwin10*)

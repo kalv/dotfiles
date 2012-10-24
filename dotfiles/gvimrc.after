@@ -1,8 +1,10 @@
 set guifont=Meslo\ LG\ M:h12
-color ir_black
+"color ir_black
+color Twilight
 
 set guioptions-=T
 set fuoptions=maxhorz,maxvert
+set nonumber
 
 let g:buffergator_viewport_split_policy = "T"
 
