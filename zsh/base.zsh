@@ -12,7 +12,7 @@ autoload -U ~/.dotfiles/zsh/functions/*(:t)
 #setopt LOCAL_OPTIONS # allow functions to have local options
 #setopt LOCAL_TRAPS # allow functions to have local traps
 
-cdpath=(~ ~/Development/apps ~/Development/node)
+cdpath=(~ ~/Development/apps ~/Development/javascript ~/Development/ruby)
 
 #setopt autopushd # Use pushd for all directory changing
 
@@ -21,5 +21,3 @@ cdpath=(~ ~/Development/apps ~/Development/node)
 source ~/.dotfiles/zsh/osx/osx.zsh
 
 source ~/.dotfiles/zsh/completion.zsh
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

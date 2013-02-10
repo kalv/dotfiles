@@ -1,0 +1,1 @@
+rvm_configure_flags=(-I`xcode-select -print-path`/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include -L`xcode-select -print-path`/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib)

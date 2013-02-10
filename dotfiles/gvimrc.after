@@ -1,6 +1,7 @@
-set guifont=Meslo\ LG\ M:h12
-"color ir_black
-color Twilight
+set guifont=Meslo\ LG\ S\ DZ:h12
+" set up the colors
+set background=dark
+colorscheme solarized
 
 set guioptions-=T
 set fuoptions=maxhorz,maxvert

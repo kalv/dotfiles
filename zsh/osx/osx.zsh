@@ -1,9 +1,12 @@
 # OS X specific settings
 
-export PATH=/Users/`whoami`/.dotfiles/bin:/usr/local/bin:~/usr/local/bin:/usr/local/sbin:/users/kalv/Development/android-sdk-mac_x86/tools:/users/kalv/Development/android-sdk-mac_x86/platform-tools:$PATH
+# Ruby
+export RUBY_GC_MALLOC_LIMIT=60000000
+export RUBY_FREE_MIN=200000
+
+export PATH=/Users/`whoami`/.dotfiles/bin:/usr/local/bin:~/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:~/.rbenv/bin:$PATH
 export GIT_EDITOR='vim'
 export EDITOR='vim'
-export GEM_OPEN_EDITOR='subl'
 export COMMAND_MODE=legacy
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
@@ -34,3 +37,10 @@ case $OSTYPE in
 esac
 
 ulimit -n 4096
+
+eval "$(rbenv init -)"
+
+# for Caliper development
+export CALIPER_API_HOST="http://caliper.dev"
+
+alias z='zeus'
