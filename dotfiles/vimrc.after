@@ -7,5 +7,6 @@ let g:buffergator_viewport_split_policy = "T"
 let g:buffergator_split_size = 20
 
 nmap <leader>b :BuffergatorOpen<cr>
+nmap <leader>p :CtrlP<cr>
 
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
