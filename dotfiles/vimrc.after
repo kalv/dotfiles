@@ -10,3 +10,11 @@ nmap <leader>b :BuffergatorOpen<cr>
 nmap <leader>p :CtrlP<cr>
 
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
+set nonumber
+
+" Easily split off a new vertical split window
+nmap <leader>v :vsplit<cr>
+
+" some tab shortcuts to help switching around
+nmap <leader>[ :tabprevious<cr>
+nmap <leader>] :tabnext<cr>
