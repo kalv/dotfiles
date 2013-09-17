@@ -6,7 +6,7 @@ export RUBY_FREE_MIN=200000
 
 export PATH=/Users/`whoami`/.dotfiles/bin:/usr/local/bin:~/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:~/.rbenv/bin:$PATH
 export GIT_EDITOR='vim'
-export EDITOR='vim'
+export EDITOR='subl'
 export COMMAND_MODE=legacy
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
@@ -42,5 +42,9 @@ eval "$(rbenv init -)"
 
 # for Caliper development
 export CALIPER_API_HOST="http://caliper.dev"
+export CALIPER_API_KEY="50cfd06f-79d4-4fc7-88d4-71869c15e83b"
 
 alias z='zeus'
+
+export SAUCELABS_USER=coherence
+export SAUCELABS_KEY=348f238d-9b62-4cc3-a2f4-5c9c5fa4a887

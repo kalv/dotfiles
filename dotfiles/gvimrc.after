@@ -1,4 +1,4 @@
-set guifont=Meslo\ LG\ S\ DZ:h12
+set guifont=Meslo:h14
 " set up the colors
 set background=dark
 colorscheme solarized

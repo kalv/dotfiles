@@ -1,10 +1,14 @@
 " set up the colors
 set background=dark
+" set background=light
 colorscheme solarized
 
 " buffergator split policy
 let g:buffergator_viewport_split_policy = "T"
 let g:buffergator_split_size = 20
+
+" change leader key
+let mapleader=" "
 
 nmap <leader>b :BuffergatorOpen<cr>
 nmap <leader>p :CtrlP<cr>
@@ -16,5 +20,39 @@ set nonumber
 nmap <leader>v :vsplit<cr>
 
 " some tab shortcuts to help switching around
-nmap <leader>[ :tabprevious<cr>
-nmap <leader>] :tabnext<cr>
+nmap <leader>h :tabprevious<cr>
+nmap <leader>l :tabnext<cr>
+
+" improve the navigation of splits using ctrl
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
+
+" default to right split
+set splitright
+
+" pull up a vimshell
+nmap <leader>s :VimShell<cr>
+
+" let g:neocomplcache_enable_at_startup = 1
+
+let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+let g:vimshell_prompt =  '$ '
+
+" unsure why janus key binding isn't working
+nmap <leader>gb :Gblame<CR>
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gl :Glog<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gp :Git push<CR>
+
+" Set up unimpaired to use hjkl
+" Normal Mode: Bubble single lines
+call janus#add_mapping('unimpaired', 'nmap', '<C-k>', '[e')
+call janus#add_mapping('unimpaired', 'nmap', '<C-j>', ']e')
+
+" Visual Mode: Bubble multiple lines
+call janus#add_mapping('unimpaired', 'vmap', '<C-k>', '[egv')
+call janus#add_mapping('unimpaired', 'vmap', '<C-j>', ']egv')

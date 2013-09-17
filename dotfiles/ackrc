@@ -1,6 +1,6 @@
 --type-add=ruby=.haml,.rake,.feature,.pp
 --type-add=js=.js,.ejs,.coffee,.eco
 --type-add=css=.less,.sass,.scss
---type-add=html=.eco,.ejb
+--type-add=html=.eco,.ejb,.hbs
 --type-set=plaintext=.md,.mdown,.markdown,.mkdn,.textile,.rst,.txt
 --ignore-dir=.bundle
