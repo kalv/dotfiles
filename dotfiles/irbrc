@@ -16,3 +16,7 @@ end
 
 railsrc = "~/.railsrc"
 load railsrc if $0 == 'irb' && ENV['RAILS_ENV']
+
+def copy(str)
+  IO.popen('pbcopy', 'w') { |f| f << str.to_s }
+end
