@@ -20,6 +20,6 @@
   pl = pull
   waa = "!sh -c 'git diff -- \"$@\" | git apply --cached --whitespace=fix; git checkout -- ${1-.} \"$@\"' -"
 [push]
-	default = matching
+	default = current
 [format]
   pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
