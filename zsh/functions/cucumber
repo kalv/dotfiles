@@ -1,0 +1,7 @@
+cucumber() {
+  if [ -S .zeus.sock ]; then
+    zeus cucumber "$@"
+  else
+    command bundle exec cucumber "$@"
+  fi
+}

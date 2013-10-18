@@ -57,30 +57,45 @@ call janus#add_mapping('unimpaired', 'nmap', '<C-j>', ']e')
 call janus#add_mapping('unimpaired', 'vmap', '<C-k>', '[egv')
 call janus#add_mapping('unimpaired', 'vmap', '<C-j>', ']egv')
 
+" cucumber mappings
+map <leader>c :call RunCurrentCuke()<CR>
+
+function! RunCurrentCuke()
+  if InCukeFile()
+    let l:command = "cucumber -r features " . @%
+    call SetLastTestCommand(l:command)
+    call RunTestCmd(l:command)
+  endif
+endfunction
+
+function! InCukeFile()
+  return match(expand("%"), ".feature$") != -1
+endfunction
+
 " rspec mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
+map <Leader>r :call RunLastTest()<CR>
 
 function! RunCurrentSpecFile()
   if InSpecFile()
     let l:command = "rspec " . @%
-    call SetLastSpecCommand(l:command)
-    call RunSpecs(l:command)
+    call SetLastTestCommand(l:command)
+    call RunTestCmd(l:command)
   endif
 endfunction
 
 function! RunNearestSpec()
   if InSpecFile()
     let l:command = "rspec " . @% . ":" . line(".")
-    call SetLastSpecCommand(l:command)
-    call RunSpecs(l:command)
+    call SetLastTestCommand(l:command)
+    call RunTestCmd(l:command)
   endif
 endfunction
 
-function! RunLastSpec()
-  if exists("t:last_spec_command")
-    call RunSpecs(t:last_spec_command)
+function! RunLastTest()
+  if exists("t:last_test_command")
+    call RunTestCmd(t:last_test_command)
   endif
 endfunction
 
@@ -88,10 +103,10 @@ function! InSpecFile()
   return match(expand("%"), "_spec.rb$") != -1
 endfunction
 
-function! SetLastSpecCommand(command)
-  let t:last_spec_command = a:command
+function! SetLastTestCommand(command)
+  let t:last_test_command = a:command
 endfunction
 
-function! RunSpecs(command)
+function! RunTestCmd(command)
   execute ":w\|!" . a:command
 endfunction
