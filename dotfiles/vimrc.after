@@ -59,10 +59,19 @@ call janus#add_mapping('unimpaired', 'vmap', '<C-j>', ']egv')
 
 " cucumber mappings
 map <leader>c :call RunCurrentCuke()<CR>
+map <leader>w :call RunWipCuke()<CR>
 
 function! RunCurrentCuke()
   if InCukeFile()
     let l:command = "cucumber -r features " . @%
+    call SetLastTestCommand(l:command)
+    call RunTestCmd(l:command)
+  endif
+endfunction
+
+function! RunWipCuke()
+  if InCukeFile()
+    let l:command = "cucumber -r features " . @% . " --profile=wip"
     call SetLastTestCommand(l:command)
     call RunTestCmd(l:command)
   endif
