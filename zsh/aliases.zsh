@@ -12,4 +12,4 @@ alias s='git status -sb'
 
 # bundler
 alias be='bundle exec'
-alias bi='bundle check && bundle install'
+alias bi='bundle check; bundle install'
