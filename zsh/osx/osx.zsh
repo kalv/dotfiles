@@ -48,3 +48,6 @@ alias z='zeus'
 
 export SAUCELABS_USER=coherence
 export SAUCELABS_KEY=348f238d-9b62-4cc3-a2f4-5c9c5fa4a887
+
+export CHROMIUM_SRC=/Users/kalv/Development/chrome/chrome-svn-trunk/src
+export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
