@@ -4,7 +4,6 @@ for found in ~/.dotfiles/dotfiles/*; do
   ln -fs $found ~/.$found:t
 done
 
-ln -fs ~/.dotfiles/vim ~/.vim
 chsh -s /bin/zsh
 
 # set up vim bundles

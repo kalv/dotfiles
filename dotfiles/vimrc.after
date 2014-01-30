@@ -1,3 +1,4 @@
+syntax enable
 " set up the colors
 set background=dark
 " set background=light
@@ -7,14 +8,14 @@ colorscheme solarized
 let g:buffergator_viewport_split_policy = "T"
 let g:buffergator_split_size = 20
 
-" change leader key
-let mapleader=" "
-
 nmap <leader>b :BuffergatorOpen<cr>
 nmap <leader>p :CtrlP<cr>
 
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 set nonumber
+
+" Enable mouse
+set mouse=a
 
 " Easily split off a new vertical split window
 nmap <leader>v :vsplit<cr>
@@ -50,12 +51,12 @@ nmap <leader>gp :Git push<CR>
 
 " Set up unimpaired to use hjkl
 " Normal Mode: Bubble single lines
-call janus#add_mapping('unimpaired', 'nmap', '<C-k>', '[e')
-call janus#add_mapping('unimpaired', 'nmap', '<C-j>', ']e')
+"call janus#add_mapping('unimpaired', 'nmap', '<C-k>', '[e')
+"call janus#add_mapping('unimpaired', 'nmap', '<C-j>', ']e')
 
 " Visual Mode: Bubble multiple lines
-call janus#add_mapping('unimpaired', 'vmap', '<C-k>', '[egv')
-call janus#add_mapping('unimpaired', 'vmap', '<C-j>', ']egv')
+"call janus#add_mapping('unimpaired', 'vmap', '<C-k>', '[egv')
+"call janus#add_mapping('unimpaired', 'vmap', '<C-j>', ']egv')
 
 " cucumber mappings
 map <leader>c :call RunCurrentCuke()<CR>

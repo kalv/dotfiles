@@ -1,12 +1,15 @@
 # OS X specific settings
 
 # Ruby
-export RUBY_GC_MALLOC_LIMIT=60000000
-export RUBY_FREE_MIN=200000
+#export RUBY_GC_MALLOC_LIMIT=60000000
+#export RUBY_FREE_MIN=200000
+
+# for ruby 2.1
+#export RUBY_GC_HEAP_FREE_SLOTS=200000
 
 export PATH=/Users/`whoami`/.dotfiles/bin:/usr/local/bin:~/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:~/.rbenv/bin:$PATH
 export GIT_EDITOR='vim'
-export EDITOR='subl'
+export EDITOR='vim'
 export COMMAND_MODE=legacy
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
@@ -50,4 +53,7 @@ export SAUCELABS_USER=coherence
 export SAUCELABS_KEY=348f238d-9b62-4cc3-a2f4-5c9c5fa4a887
 
 export CHROMIUM_SRC=/Users/kalv/Development/chrome/chrome-svn-trunk/src
+export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+
+export CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl`"
 export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
