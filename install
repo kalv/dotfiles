@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh
 
 for found in ~/.dotfiles/dotfiles/*; do
-  ln -fs $found ~/.$found:t
+  ln -fs $found ~/.$(basename $found)
 done
 
 chsh -s /bin/zsh
 
 # set up vim bundles
-curl https://raw.github.com/carlhuda/janus/master/bootstrap.sh -o - | sh
+curl -Lo- https://bit.ly/janus-bootstrap | bash
