@@ -43,6 +43,8 @@ ulimit -n 4096
 
 eval "$(rbenv init -)"
 
+export PATH=./bin:$PATH
+
 # for Caliper development
 export CALIPER_API_HOST="http://caliper.dev"
 export CALIPER_API_KEY="50cfd06f-79d4-4fc7-88d4-71869c15e83b"
@@ -53,7 +55,6 @@ export SAUCELABS_USER=coherence
 export SAUCELABS_KEY=348f238d-9b62-4cc3-a2f4-5c9c5fa4a887
 
 export CHROMIUM_SRC=/Users/kalv/Development/chrome/chrome-svn-trunk/src
-export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
-export CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl`"
-export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+# export CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl`"
+# export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
