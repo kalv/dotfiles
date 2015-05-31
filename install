@@ -1,10 +1,8 @@
 #!/usr/bin/env zsh
 
+# install Janus vim
+curl -Lo- https://bit.ly/janus-bootstrap | bash
+
 for found in ~/.dotfiles/dotfiles/*; do
   ln -fs $found ~/.$(basename $found)
 done
-
-chsh -s /bin/zsh
-
-# set up vim bundles
-curl -Lo- https://bit.ly/janus-bootstrap | bash

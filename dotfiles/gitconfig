@@ -14,7 +14,7 @@
   squash = rebase --interactive
   unadd = reset HEAD
   co = checkout
-  aa = add -A
+	aa = add -A
   st = status
   ps = push
   pl = pull
