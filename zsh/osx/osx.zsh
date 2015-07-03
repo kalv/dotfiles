@@ -5,7 +5,9 @@
 #export RUBY_FREE_MIN=200000
 
 # for ruby 2.1
-#export RUBY_GC_HEAP_FREE_SLOTS=200000
+export RUBY_GC_MALLOC_LIMIT=100000000
+export RUBY_GC_HEAP_INIT_SLOTS=40000
+export RUBY_GC_HEAP_FREE_SLOTS=500000
 
 export PATH=/Users/`whoami`/.dotfiles/bin:/usr/local/bin:~/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:~/.rbenv/bin:$PATH
 export GIT_EDITOR='vim'
