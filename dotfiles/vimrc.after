@@ -24,11 +24,16 @@ nmap <leader>v :vsplit<cr>
 nmap <leader>h :tabprevious<cr>
 nmap <leader>l :tabnext<cr>
 
+" unmap some mappings Janus creates that slows down tabprevious
+unmap <leader>hs
+unmap <leader>hp
+unmap <leader>hr
+
 " improve the navigation of splits using ctrl
-" nnoremap <C-J> <C-W><C-J>
-" nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
-" nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " default to right split
 set splitright
@@ -120,3 +125,9 @@ endfunction
 function! RunTestCmd(command)
   execute ":w\|!" . a:command
 endfunction
+
+" Use ag for searching
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" Ctrl-d to replace the highligted text with something
+nnoremap <c-d> :%s///g<left><left>
