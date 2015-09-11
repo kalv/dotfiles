@@ -131,3 +131,12 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Ctrl-d to replace the highligted text with something
 nnoremap <c-d> :%s///g<left><left>
+
+" Setup custom statusline
+set statusline=%f\ %m\ %r:%l
+
+if janus#is_plugin_enabled('syntastic')
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+endif
