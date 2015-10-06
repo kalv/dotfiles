@@ -2,4 +2,6 @@
 let mapleader=" "
 
 call janus#disable_plugin('nerdcommenter')
+call janus#disable_plugin('nerdtree')
+call janus#disable_plugin('vimwiki')
 call janus#disable_plugin('snipmate')
