@@ -12,7 +12,7 @@ source ~/.dotfiles/zsh/aliases.zsh
 #setopt LOCAL_OPTIONS # allow functions to have local options
 #setopt LOCAL_TRAPS # allow functions to have local traps
 
-cdpath=(~/Development/clients ~/Development/apps ~/Development/javascript ~/Development/ruby ~/Development/sites)
+cdpath=(~/Development/elixir ~/Development/clients ~/Development/apps ~/Development/javascript ~/Development/ruby ~/Development/sites)
 
 #setopt autopushd # Use pushd for all directory changing
 
