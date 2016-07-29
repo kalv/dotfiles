@@ -1,7 +1,5 @@
 system_name=`uname -a`
 
-fpath=(~/.dotfiles/zsh/functions $fpath)
-
 source ~/.dotfiles/zsh/prompt.zsh
 source ~/.dotfiles/zsh/misc.zsh
 source ~/.dotfiles/zsh/history.zsh

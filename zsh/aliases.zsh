@@ -1,5 +1,5 @@
 # ls
-alias ls="ls -F"
+alias ls='ls -ahGl'
 alias l="ls -lAh"
 alias ll="ls -al"
 alias la='ls -A'
@@ -16,3 +16,11 @@ alias bi='bundle check; bundle install'
 
 # Elixir / Phoenix helpers
 alias p-rebuild-assets='node node_modules/brunch/bin/brunch build'
+
+# Use OS X version of SSH with agent forwarding
+alias ssh='/usr/bin/ssh -A'
+alias scp='/usr/bin/scp'
+alias sftp='/usr/bin/sftp'
+
+# neovim
+alias vim='nvim'
