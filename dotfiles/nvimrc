@@ -1,3 +1,6 @@
+" Allow plugins to know about filetype
+filetype plugin indent on
+
 " Setup plugins
 call plug#begin('~/.nvim/plugged')
 
@@ -15,8 +18,13 @@ Plug 'ap/vim-css-color'
 Plug 'tpope/vim-unimpaired' "backet mapping
 " Plug 'git@github.com:sheerun/vim-polyglot.git'
 Plug 'git@github.com:terryma/vim-multiple-cursors.git'
-Plug 'kchmck/vim-coffee-script'
-Plug 'mtscout6/vim-cjsx'
+
+" Plug 'kchmck/vim-coffee-script'
+
+Plug 'mtscout6/vim-cjsx', { 'for': 'javascript' }
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+" Plug 'pangloss/vim-javascript' To test further with javascript files
+
 Plug 'elixir-lang/vim-elixir'
 Plug 'neomake/neomake'
 Plug 'airblade/vim-gitgutter'
@@ -114,6 +122,9 @@ set splitright
 " let g:multi_cursor_quit_key='<Esc>'
 
 " let g:neocomplcache_enable_at_startup = 1
+
+" don't bind git gutter keys as they clash with custom keybindings
+let g:gitgutter_map_keys = 0
 
 " unsure why janus key binding isn't working
 " nmap <leader>gb :Gblame<CR>
