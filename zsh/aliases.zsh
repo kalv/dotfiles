@@ -9,6 +9,7 @@ alias d='git diff'
 alias c='git commit'
 alias ca='git commit -a'
 alias s='git status -b'
+alias g-clean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 
 # bundler
 alias be='bundle exec'
