@@ -24,7 +24,7 @@ alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
 
 # neovim
-alias vim='nvim'
-alias vi='nvim'
+#alias vim='nvim'
+#alias vi='nvim'
 
 alias z='zeus'
