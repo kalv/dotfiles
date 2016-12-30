@@ -23,3 +23,6 @@ ulimit -n 4096
 # export GOPATH=/usr/local/opt/go/libexec
 
 export PATH="./bin:$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Ensure that tmux ctrl a and e work
+bindkey -e
