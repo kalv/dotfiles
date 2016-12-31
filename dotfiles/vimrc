@@ -270,3 +270,5 @@ vnoremap // y/<C-R>"<CR>
 
 " Rebind refresh of ctrl p so that it works on 60% keyboard
 map <leader>5 :CtrlPClearCache<cr>
+
+set laststatus=2
