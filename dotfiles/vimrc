@@ -16,6 +16,7 @@ Plug 'vim-scripts/HTML-AutoCloseTag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-unimpaired' "backet mapping
+
 " Plug 'git@github.com:sheerun/vim-polyglot.git'
 Plug 'git@github.com:terryma/vim-multiple-cursors.git'
 
@@ -26,10 +27,9 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " Plug 'pangloss/vim-javascript' To test further with javascript files
 
 Plug 'elixir-lang/vim-elixir'
-Plug 'neomake/neomake'
-Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 
 " Plug '907th/vim-auto-save'
 " Plug 'thoughtbot/vim-rspec'
@@ -247,10 +247,6 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
-
-" Trying Neomake
-autocmd! BufWritePost,BufEnter * Neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
 
 " // to search for the selection of text
 vnoremap // y/<C-R>"<CR>
