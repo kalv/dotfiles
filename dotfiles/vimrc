@@ -16,6 +16,7 @@ Plug 'vim-scripts/HTML-AutoCloseTag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-unimpaired' "backet mapping
+Plug 'vim-syntastic/syntastic'
 
 " Plug 'git@github.com:sheerun/vim-polyglot.git'
 Plug 'git@github.com:terryma/vim-multiple-cursors.git'
@@ -238,9 +239,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
+"let g:syntastic_error_symbol = '❌'
+let g:syntastic_error_symbol = "☠"
 let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_error_symbol = '⁉️'
 let g:syntastic_style_warning_symbol = '💩'
 
 highlight link SyntasticErrorSign SignColumn

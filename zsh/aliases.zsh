@@ -28,3 +28,5 @@ alias sftp='/usr/bin/sftp'
 #alias vi='nvim'
 
 alias z='zeus'
+
+alias vi='vim'
