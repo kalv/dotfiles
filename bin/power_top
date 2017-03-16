@@ -1,0 +1,1 @@
+top -stats pid,command,cpu,idlew,power -o power -d

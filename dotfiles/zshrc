@@ -1,3 +1,6 @@
 source ~/.dotfiles/zsh/base.zsh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+#autoload -U promptinit; promptinit
+#prompt pure
