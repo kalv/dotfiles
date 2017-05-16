@@ -7,7 +7,7 @@ call plug#begin('~/.nvim/plugged')
 " Install by running PlugInstall from within vim
 Plug 'git://github.com/altercation/vim-colors-solarized.git'
 Plug 'https://github.com/kien/ctrlp.vim.git'
-Plug 'git@github.com:jeetsukumaran/vim-buffergator.git'
+Plug 'jeetsukumaran/vim-buffergator'
 Plug 'rking/ag.vim'
 Plug 'bling/vim-airline'
 Plug 'ntpeters/vim-better-whitespace'
@@ -19,7 +19,7 @@ Plug 'tpope/vim-unimpaired' "backet mapping
 Plug 'vim-syntastic/syntastic'
 
 " Plug 'git@github.com:sheerun/vim-polyglot.git'
-Plug 'git@github.com:terryma/vim-multiple-cursors.git'
+Plug 'terryma/vim-multiple-cursors'
 
 " Plug 'kchmck/vim-coffee-script'
 
@@ -28,9 +28,9 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " Plug 'pangloss/vim-javascript' To test further with javascript files
 
 Plug 'elixir-lang/vim-elixir'
-"Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-endwise'
-"Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 " Plug '907th/vim-auto-save'
 " Plug 'thoughtbot/vim-rspec'
