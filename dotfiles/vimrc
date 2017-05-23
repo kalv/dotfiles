@@ -2,7 +2,7 @@
 filetype plugin indent on
 
 " Setup plugins
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 " Install by running PlugInstall from within vim
 Plug 'git://github.com/altercation/vim-colors-solarized.git'
@@ -13,7 +13,8 @@ Plug 'bling/vim-airline'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/HTML-AutoCloseTag'
-Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-unimpaired' "backet mapping
 Plug 'vim-syntastic/syntastic'
@@ -30,7 +31,7 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'elixir-lang/vim-elixir'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-endwise'
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Plug '907th/vim-auto-save'
 " Plug 'thoughtbot/vim-rspec'
@@ -85,6 +86,7 @@ let mapleader=" "
 set background=dark
 " set background=light
 colorscheme solarized
+let g:airline_theme='solarized'
 
 " buffergator split policy
 let g:buffergator_viewport_split_policy = "T"
