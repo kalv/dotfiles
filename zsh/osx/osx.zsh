@@ -1,6 +1,6 @@
 # OS X specific settings
 
-export PATH=/Users/`whoami`/.dotfiles/bin:/usr/local/bin:~/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:~/.rbenv/bin:$PATH
+export PATH=/Users/`whoami`/.dotfiles/bin:/usr/local/bin:~/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin::/usr/local/opt/go/libexec/bin:~/go/bin:$PATH
 export GIT_EDITOR='vim'
 export EDITOR='vim'
 export COMMAND_MODE=legacy
