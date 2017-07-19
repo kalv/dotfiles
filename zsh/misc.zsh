@@ -1,8 +1,10 @@
-bindkey '^H' backward-delete-char
-bindkey "^[[3~" delete-char
+#bindkey '^H' backward-delete-char
+#bindkey "^[[3~" delete-char
 setopt autocd
 
-setopt NO_BG_NICE # don't nice background tasks
+# don't nice background tasks
+setopt NO_BG_NICE
+
 setopt NO_HUP
 setopt NO_LIST_BEEP
 #setopt CORRECT

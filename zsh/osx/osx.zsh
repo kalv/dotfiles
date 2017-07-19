@@ -7,11 +7,7 @@ export COMMAND_MODE=legacy
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
 
-case $OSTYPE in
-  darwin10*)
-		export ARCHFLAGS="-arch x86_64"
-  ;;;
-esac
+#export ARCHFLAGS="-arch x86_64"
 
 ulimit -n 4096
 
