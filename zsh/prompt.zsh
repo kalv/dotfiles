@@ -25,7 +25,7 @@ git_sync() {
   changes=$(git status)
   case $changes in
     *ahead*)
-      echo "|%{$fg[red]%}▲%{$fg[cyan]%}"
+      echo " \u26a1"
       return
     ;;
   esac
@@ -33,7 +33,7 @@ git_sync() {
 
 git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo " %{$fg[red]%}git:%{$fg[cyan]%}$(git_diff_color)${ref#refs/heads/}$(git_sync)"
+  echo " \ue0a0 %{$fg[cyan]%}$(git_diff_color)${ref#refs/heads/}$(git_sync)"
 }
 
 
@@ -42,7 +42,7 @@ colors
 
 setopt prompt_subst
 
-# If we're running in an ssh session, use a different colour 
+# If we're running in an ssh session, use a different colour
 # than if we're on a local machine
 
 
