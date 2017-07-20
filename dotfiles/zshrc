@@ -3,7 +3,6 @@ source ~/.dotfiles/zsh/base.zsh
 source ~/.dotfiles/zsh/antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
-antigen apply
 
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -11,3 +10,9 @@ export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 # Use the up and down keys to search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+antigen apply
+
+export EDITOR=vim
+export GIT_EDITOR=vim
+export BUNDLE_EDITOR=vim
