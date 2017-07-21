@@ -1,5 +1,4 @@
 # ls
-alias ls='ls -ahGl'
 alias l="ls -lAh"
 alias ll="ls -al"
 alias la='ls -A'

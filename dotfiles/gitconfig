@@ -1,6 +1,6 @@
 [user]
 	name = Kalvir Sandhu
-	email = kalv@kalv.co.uk
+  email = kalv@kalv.co.uk
 [core]
 	excludesfile = ~/.gitignore
 	quotepath = false

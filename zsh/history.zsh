@@ -8,3 +8,6 @@ setopt histignoredups
 setopt hist_no_store
 setopt histreduceblanks
 setopt no_hist_beep
+
+bindkey "\e[A" history-beginning-search-backward
+bindkey "\e[B" history-beginning-search-forward
