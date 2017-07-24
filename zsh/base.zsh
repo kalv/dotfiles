@@ -8,9 +8,5 @@ source ~/.dotfiles/zsh/linux/linux.zsh
 
 source ~/.dotfiles/zsh/completion.zsh # is slow? Does it really be needed
 
+source ~/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.dotfiles/zsh/history.zsh
-
-# trying to use new plugin
-#bindkey '^[[A' history-substring-search-up
-#bindkey '^[[B' history-substring-search-down
-#source ~/.dotfiles/zsh/zsh-history-substring-search.zsh

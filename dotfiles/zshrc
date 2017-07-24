@@ -1,8 +1,12 @@
 source ~/.dotfiles/zsh/base.zsh
 
-source ~/.dotfiles/zsh/antigen.zsh
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
+#source ~/.dotfiles/zsh/antigen.zsh
+#antigen bundle zsh-users/zsh-syntax-highlighting
+#antigen bundle zsh-users/zsh-history-substring-search
+#antigen apply
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 export EDITOR=vim
 export GIT_EDITOR=vim
