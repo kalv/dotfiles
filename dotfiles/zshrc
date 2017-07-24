@@ -4,7 +4,6 @@ source ~/.dotfiles/zsh/antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
-
 export EDITOR=vim
 export GIT_EDITOR=vim
 export BUNDLE_EDITOR=vim
