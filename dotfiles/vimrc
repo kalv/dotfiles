@@ -17,8 +17,9 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-unimpaired' "backet mapping
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 Plug 'matze/vim-move' " moving block of text up and down
+Plug 'w0rp/ale' " async syntastic file checking
 
 " Plug 'git@github.com:sheerun/vim-polyglot.git'
 Plug 'terryma/vim-multiple-cursors'
@@ -223,37 +224,13 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 let g:move_key_modifier = 'C'
 
-" syntastic overrides
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-
-" Disabling for now as tmux doesn't play well
-"let g:syntastic_error_symbol = '❌'
-" let g:syntastic_error_symbol = "☠"
-"let g:syntastic_warning_symbol = '⚠️'
-"let g:syntastic_style_error_symbol = '⁉️'
-"let g:syntastic_style_warning_symbol = '💩'
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-
 function! ZiplineChecks()
-  let g:syntastic_ruby_checkers          = ['reek', 'rubocop', 'mri']
-  let g:syntastic_ruby_rubocop_exec      = '/Users/kalv/.rvm/gems/ruby-2.4.1/bin/rubocop'
+  " let g:syntastic_ruby_checkers          = ['reek', 'rubocop', 'mri']
+  " let g:syntastic_ruby_rubocop_exec      = '/Users/kalv/.rvm/gems/ruby-2.4.1/bin/rubocop'
 endfunction
 
 function! TurnOffZiplineChecks()
-  let g:syntastic_ruby_checkers          = ['mri']
+  " let g:syntastic_ruby_checkers          = ['mri']
 endfunction
 
 " // to search for the selection of text
