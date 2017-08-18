@@ -18,6 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-unimpaired' "backet mapping
 Plug 'vim-syntastic/syntastic'
+Plug 'matze/vim-move' " moving block of text up and down
 
 " Plug 'git@github.com:sheerun/vim-polyglot.git'
 Plug 'terryma/vim-multiple-cursors'
@@ -95,7 +96,7 @@ let g:airline_section_b = ""
 
 let g:airline_section_x = ""
 let g:airline_section_y = "%{airline#util#wrap(airline#parts#filetype(),0)}"
-let g:airline_section_z = "%#__accent_bold#%l%#__restore__#%#__accent_bold#%#__restore__#"
+let g:airline_section_z = "%#__accent_bold#%l:%c%#__restore__#%#__accent_bold#%#__restore__#"
 let g:airline_skip_empty_sections = 1
 
 
@@ -133,25 +134,8 @@ nmap <leader>l :tabnext<cr>
 " default to right split
 set splitright
 
-" Multi Cursor
-" let g:multi_cursor_use_default_mapping=0
-" let g:multi_cursor_next_key='<C-n>'
-" let g:multi_cursor_prev_key='<C-p>'
-" let g:multi_cursor_skip_key='<C-x>'
-" let g:multi_cursor_quit_key='<Esc>'
-
-" let g:neocomplcache_enable_at_startup = 1
-
 " don't bind git gutter keys as they clash with custom keybindings
 let g:gitgutter_map_keys = 0
-
-" unsure why janus key binding isn't working
-" nmap <leader>gb :Gblame<CR>
-" nmap <leader>gs :Gstatus<CR>
-" nmap <leader>gd :Gdiff<CR>
-" nmap <leader>gl :Glog<CR>
-" nmap <leader>gc :Gcommit<CR>
-" nmap <leader>gp :Git push<CR>
 
 " cucumber mappings
 map <leader>c :call RunCurrentCuke()<CR>
@@ -219,9 +203,6 @@ endfunction
 " Ctrl-d to replace the highligted text with something
 nnoremap <c-d> :%s///g<left><left>
 
-" Setup Status line to see line number and that's all
-" set statusline=%f:%l\ %m\ %r
-
 " After installing https://github.com/powerline/fonts
 let g:airline_powerline_fonts = 1
 
@@ -235,10 +216,12 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " let g:ctrlp_use_caching = 0
 
 " handle block movement when in visual mode
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
-vmap <C-k> [egv
-vmap <C-j> ]egv
+" vmap <C-Up> [egv
+" vmap <C-Down> ]egv
+" vmap <C-k> [egv
+" vmap <C-j> ]egv
+
+let g:move_key_modifier = 'C'
 
 " syntastic overrides
 " set statusline+=%#warningmsg#
@@ -248,20 +231,30 @@ vmap <C-j> ]egv
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
 let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 
+" Disabling for now as tmux doesn't play well
 "let g:syntastic_error_symbol = '❌'
-let g:syntastic_error_symbol = "☠"
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_style_warning_symbol = '💩'
+" let g:syntastic_error_symbol = "☠"
+"let g:syntastic_warning_symbol = '⚠️'
+"let g:syntastic_style_error_symbol = '⁉️'
+"let g:syntastic_style_warning_symbol = '💩'
 
 highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+function! ZiplineChecks()
+  let g:syntastic_ruby_checkers          = ['reek', 'rubocop', 'mri']
+  let g:syntastic_ruby_rubocop_exec      = '/Users/kalv/.rvm/gems/ruby-2.4.1/bin/rubocop'
+endfunction
+
+function! TurnOffZiplineChecks()
+  let g:syntastic_ruby_checkers          = ['mri']
+endfunction
 
 " // to search for the selection of text
 vnoremap // y/<C-R>"<CR>
@@ -269,7 +262,7 @@ vnoremap // y/<C-R>"<CR>
 " Map neoterm terminal exit to ESC
 " tnoremap <Esc> <C-\><C-n>
 
-" RSpec.vim mappings
+" RSpec.vim mappings when thoughtbot plugin is enabled
 " map <Leader>t :call RunCurrentSpecFile()<CR>
 " map <Leader>s :call RunNearestSpec()<CR>
 " map <Leader>r :call RunLastSpec()<CR>
