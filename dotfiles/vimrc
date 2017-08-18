@@ -216,12 +216,6 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " ag is fast enough that CtrlP doesn't need to cache
 " let g:ctrlp_use_caching = 0
 
-" handle block movement when in visual mode
-" vmap <C-Up> [egv
-" vmap <C-Down> ]egv
-" vmap <C-k> [egv
-" vmap <C-j> ]egv
-
 let g:move_key_modifier = 'C'
 
 function! ZiplineChecks()
@@ -232,6 +226,16 @@ endfunction
 function! TurnOffZiplineChecks()
   " let g:syntastic_ruby_checkers          = ['mri']
 endfunction
+
+" error symbols for syntax
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+
+" Write this in your vimrc file
+" let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+" let g:ale_lint_on_enter = 0
 
 " // to search for the selection of text
 vnoremap // y/<C-R>"<CR>
