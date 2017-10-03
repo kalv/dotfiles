@@ -24,13 +24,18 @@ Plug 'w0rp/ale' " async syntastic file checking
 " Plug 'git@github.com:sheerun/vim-polyglot.git'
 Plug 'terryma/vim-multiple-cursors'
 
-" Plug 'kchmck/vim-coffee-script'
+" To work with Coffee Script / CJSX
+Plug 'kchmck/vim-coffee-script'
+" Plug 'mtscout6/vim-cjsx', { 'for': 'javascript' }
 
-Plug 'mtscout6/vim-cjsx', { 'for': 'javascript' }
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
-" Plug 'pangloss/vim-javascript' To test further with javascript files
+" Javascript handling
+" Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript'
+" Easy tag creation using Emmet
+" Plug 'mattn/emmet-vim'
 
 Plug 'elixir-lang/vim-elixir'
+
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -38,7 +43,6 @@ Plug 'tpope/vim-fugitive'
 " Plug '907th/vim-auto-save'
 " Plug 'thoughtbot/vim-rspec'
 
-Plug 'kchmck/vim-coffee-script'
 Plug 'slim-template/vim-slim'
 
 call plug#end()
@@ -258,3 +262,9 @@ vnoremap // y/<C-R>"<CR>
 map <leader>5 :CtrlPClearCache<cr>
 
 set laststatus=2
+
+" Speeding up the escape character
+set timeoutlen=1000 ttimeoutlen=10
+
+" Speed up drawing/rendering
+set lazyredraw

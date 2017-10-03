@@ -18,3 +18,6 @@ ulimit -n 4096
 
 # Ensure that tmux ctrl a and e work
 bindkey -e
+
+# reduce the zsh key timeout
+export KEYTIMEOUT=1
