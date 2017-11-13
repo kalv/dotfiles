@@ -11,3 +11,4 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 brew install zsh-history-substring-search
 brew install zsh-syntax-highlighting
+git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions

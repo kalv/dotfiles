@@ -35,6 +35,8 @@ Plug 'pangloss/vim-javascript'
 " Plug 'mattn/emmet-vim'
 
 Plug 'elixir-lang/vim-elixir'
+" Handling of ElixirSense in vim
+" Plug 'slashmili/alchemist.vim'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-endwise'
