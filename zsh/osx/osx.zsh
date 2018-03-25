@@ -1,6 +1,7 @@
 # OS X specific settings
 
 export PATH=/Users/`whoami`/.dotfiles/bin:/usr/local/bin:~/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin::/usr/local/opt/go/libexec/bin:~/go/bin:$PATH
+export PATH=$PATH:$HOME/.cargo/bin
 export GIT_EDITOR='vim'
 export EDITOR='vim'
 export COMMAND_MODE=legacy
@@ -14,7 +15,8 @@ ulimit -n 4096
 # When using Go
 # export PATH=$PATH:/usr/local/opt/go/libexec/bin
 #
-# export GOPATH=/usr/local/opt/go/libexec
+export GOPATH=/Users/kalv/Development/golang/workspace
+export PATH=$PATH:$GOPATH/bin
 
 # Ensure that tmux ctrl a and e work
 bindkey -e

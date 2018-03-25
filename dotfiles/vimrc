@@ -47,6 +47,9 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'slim-template/vim-slim'
 
+Plug 'fatih/vim-go'
+
+
 call plug#end()
 
 " Basic settings (brought over from janus)
@@ -271,3 +274,7 @@ set timeoutlen=1000 ttimeoutlen=10
 
 " Speed up drawing/rendering
 set lazyredraw
+
+" Optimize Go
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
