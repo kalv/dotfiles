@@ -23,3 +23,6 @@ bindkey -e
 
 # reduce the zsh key timeout
 export KEYTIMEOUT=1
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_COMMAND='ag -g ""'

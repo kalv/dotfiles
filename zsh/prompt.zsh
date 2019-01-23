@@ -42,8 +42,4 @@ colors
 
 setopt prompt_subst
 
-# If we're running in an ssh session, use a different colour
-# than if we're on a local machine
-
-
-export PROMPT=$'%{$fg[cyan]%}%c$(git_prompt_info) %{$fg[yellow]%u\u227b %{\e[0m%}'
+export PROMPT=$'%{$fg[cyan]%}%c$(git_prompt_info) %{$fg[yellow]%u\u227b %{$fg_no_bold[white]%}'
