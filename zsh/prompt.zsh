@@ -25,7 +25,7 @@ git_sync() {
   changes=$(git status)
   case $changes in
     *ahead*)
-      echo " \u26a1"
+      echo " ▲"
       return
     ;;
   esac
