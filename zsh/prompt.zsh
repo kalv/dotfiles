@@ -33,7 +33,7 @@ git_sync() {
 
 git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo " \ue0a0 %{$fg[cyan]%}$(git_diff_color)${ref#refs/heads/}$(git_sync)"
+  echo " %{$fg[cyan]%}$(git_diff_color)${ref#refs/heads/}$(git_sync)"
 }
 
 
