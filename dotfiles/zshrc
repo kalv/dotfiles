@@ -20,3 +20,4 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH=./bin:$PATH
+export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"

@@ -8,21 +8,44 @@ call plug#begin('~/.vim/plugged')
 " Plug 'rking/ag.vim'
 Plug 'itchyny/lightline.vim'
 
+" On save remove the whitespace
 Plug 'ntpeters/vim-better-whitespace'
+
+" Better tab completion
 Plug 'ervandew/supertab'
-Plug 'vim-scripts/HTML-AutoCloseTag'
-Plug 'tpope/vim-surround'
-Plug 'ap/vim-css-color'
-Plug 'tpope/vim-unimpaired' "backet mapping
+
+" Help switch between " and '
+" Plug 'tpope/vim-surround'
+
+" Plug 'ap/vim-css-color'
+
 Plug 'matze/vim-move' " moving block of text up and down
+
 Plug 'w0rp/ale' " async syntastic file checking
 
+" easily pull up results from Ag
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
-Plug 'leafgarland/typescript-vim' " typescript
-
+" Ctrl-n to select mutliple text and replace if need be
 Plug 'terryma/vim-multiple-cursors'
+
+" Show changes of git in the gutter
+Plug 'airblade/vim-gitgutter'
+
+" Git handler within vim, Gread, etc.
+Plug 'tpope/vim-fugitive'
+
+" theme
+Plug 'morhetz/gruvbox'
+
+" handle ruby ends
+Plug 'tpope/vim-endwise'
+
+" -----------------
+" LANGUAGES
+" -----------------
+Plug 'leafgarland/typescript-vim' " typescript
 
 " To work with Coffee Script / CJSX
 Plug 'kchmck/vim-coffee-script'
@@ -38,18 +61,13 @@ Plug 'elixir-lang/vim-elixir'
 " Handling of ElixirSense in vim
 " Plug 'slashmili/alchemist.vim'
 
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
+Plug 'slim-template/vim-slim'
 
 " Plug '907th/vim-auto-save'
 " Plug 'thoughtbot/vim-rspec'
 
-Plug 'slim-template/vim-slim'
-
 Plug 'fatih/vim-go'
 
-Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -96,10 +114,10 @@ set directory^=~/.nvim/_temp//      " where to put swap files.
 let mapleader=" "
 
 " set up the colors
-" set background=dark
 " set background=light
 colorscheme gruvbox
-set termguicolors
+set background=dark
+" set termguicolors
 
 let g:lightline = { 'colorscheme': 'wombat' }
 let g:lightline.component_function = {
@@ -323,3 +341,9 @@ set lazyredraw
 " Optimize Go
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
