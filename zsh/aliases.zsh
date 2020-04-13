@@ -15,18 +15,9 @@ alias g-clean='git branch --merged master | grep -v "\* master" | xargs -n 1 git
 alias be='bundle exec'
 alias bi='bundle check; bundle install'
 
-# Elixir / Phoenix helpers
-alias p-rebuild-assets='node node_modules/brunch/bin/brunch build'
-
 # Use OS X version of SSH with agent forwarding
 alias ssh='/usr/bin/ssh -A'
 alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
-
-# neovim
-#alias vim='nvim'
-#alias vi='nvim'
-
-alias z='zeus'
 
 alias vi='vim'
