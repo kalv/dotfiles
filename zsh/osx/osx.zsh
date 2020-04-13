@@ -4,7 +4,9 @@ export PATH=/Users/`whoami`/.dotfiles/bin:/usr/local/bin:~/usr/local/bin:/usr/lo
 export PATH=$PATH:$HOME/.cargo/bin
 export GIT_EDITOR='vim'
 export EDITOR='vim'
-export COMMAND_MODE=legacy
+
+# beware will not allow dev to work
+#export COMMAND_MODE=legacy
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
 
