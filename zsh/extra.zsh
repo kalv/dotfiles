@@ -1,7 +1,7 @@
 #source ~/.dotfiles/zsh/misc.zsh
 source ~/.dotfiles/zsh/aliases.zsh
 
-#source ~/.dotfiles/zsh/completion.zsh
+source ~/.dotfiles/zsh/completion.zsh
 
 #source ~/.dotfiles/zsh/history.zsh
 

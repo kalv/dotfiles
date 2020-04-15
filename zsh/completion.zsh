@@ -1,3 +1,6 @@
+cdpath=(~/src/github.com/Shopify)
+setopt auto_cd
+
 autoload -U compinit
 compinit -i
 
