@@ -21,3 +21,5 @@ alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
 
 alias vi='vim'
+
+alias ag='ag -u --unrestricted'
