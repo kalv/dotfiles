@@ -166,8 +166,6 @@ let g:lightline.active = { 'right': [['lineinfo'], ['readonly', 'linter_errors',
 
 nmap <leader>b :Buffers<cr>
 nmap <leader>p :FZF<cr>
-nmap <leader>f :ALEFix<cr>
-
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 set nonumber
 
@@ -354,5 +352,30 @@ command! -bang -nargs=* Ag
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+  \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \   <bang>0)
+
+
+let g:fzf_preview_window = ''
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+" NOTE: RG needs the preview removed
+"
+" NOTE: Figure out how to Camelcase to correct file ApplicationController to
+" application_controller
+nmap <leader>f :Rg<cr>
+
+"command! -bang -nargs=* Rg
+"  \ call fzf#vim#grep(
+"  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+"  \   fzf#vim#with_preview(), <bang>0)
