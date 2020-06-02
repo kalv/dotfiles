@@ -24,8 +24,8 @@ Plug 'matze/vim-move' " moving block of text up and down
 Plug 'w0rp/ale' " async syntastic file checking
 
 " easily pull up results from Ag
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+" Plug '/usr/local/opt/fzf'
+" Plug 'junegunn/fzf.vim'
 
 " Ctrl-n to select mutliple text and replace if need be
 Plug 'terryma/vim-multiple-cursors'
@@ -70,6 +70,10 @@ Plug 'slim-template/vim-slim'
 " Plug 'thoughtbot/vim-rspec'
 
 Plug 'fatih/vim-go'
+
+Plug 'Yggdroot/LeaderF'
+
+Plug 'Shopify/shadowenv.vim'
 
 
 call plug#end()
@@ -164,20 +168,12 @@ endfunction
 
 let g:lightline.active = { 'right': [['lineinfo'], ['readonly', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
 
-nmap <leader>b :Buffers<cr>
-nmap <leader>p :FZF<cr>
+" nmap <leader>p :FZF<cr>
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 set nonumber
 
 " Enable mouse
 set mouse=a
-
-" Easily split off a new vertical split window
-nmap <leader>v :vsplit<cr>
-
-" some tab shortcuts to help switching around
-nmap <leader>h :tabprevious<cr>
-nmap <leader>l :tabnext<cr>
 
 " unmap some mappings Janus creates that slows down tabprevious
 "unmap <leader>hs
@@ -197,8 +193,8 @@ set splitright
 let g:gitgutter_map_keys = 0
 
 " cucumber mappings
-map <leader>c :call RunCurrentCuke()<CR>
-map <leader>w :call RunWipCuke()<CR>
+" map <leader>c :call RunCurrentCuke()<CR>
+" map <leader>w :call RunWipCuke()<CR>
 
 function! RunCurrentCuke()
   if InCukeFile()
@@ -302,16 +298,16 @@ let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 " only check syntax on switching to normal
 " let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_delay = 500
+let g:ale_lint_delay = 100
 " You can disable this option too
 " if you don't want linters to run on opening a file
 " let g:ale_lint_on_enter = 0
 "
 " Always show the gutter
 " let g:ale_sign_column_always = 1
-" let g:ale_lint_on_save = 1
+let g:ale_lint_on_save = 1
 
-let g:ale_linters = {'javascript': ['eslint']}
+let g:ale_linters = {'javascript': ['eslint'], 'ruby': ['rubocop']}
 
 " // to search for the selection of text
 vnoremap // y/<C-R>"<CR>
@@ -329,9 +325,6 @@ vnoremap // y/<C-R>"<CR>
 " let g:auto_save = 1
 " let updatetime=500
 
-" Rebind refresh of ctrl p so that it works on 60% keyboard
-map <leader>5 :CtrlPClearCache<cr>
-
 set laststatus=2
 
 " Speeding up the escape character
@@ -344,38 +337,68 @@ set lazyredraw
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \                 <bang>0)
+" command! -bang -nargs=* Ag
+"   \ call fzf#vim#ag(<q-args>,
+"   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+"   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+"   \                 <bang>0)
 
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
-  \   <bang>0)
+"command! -bang -nargs=* Rg
+"  \ call fzf#vim#grep(
+"  \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
+"  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+"  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+"  \   <bang>0)
 
+" ripgrep
+"if executable('rg')
+"  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+"  set grepprg=rg\ --vimgrep
+"  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d"\017"', 1, <bang>0)
+"  command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+"  " Rg
+"  nnoremap <silent> <Leader>fa :Find<CR>
+"  " Rg current worda
+"  nnoremap <Leader>fw :Rg <C-R><C-W><space>
+"endif
 
-let g:fzf_preview_window = ''
+"function! RipgrepFzf(query, fullscreen)
+"  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+"  let initial_command = printf(command_fmt, shellescape(a:query))
+"  let reload_command = printf(command_fmt, '{q}')
+"  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+"  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+"endfunction
 
-function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
-
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+" command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 " NOTE: RG needs the preview removed
-"
-" NOTE: Figure out how to Camelcase to correct file ApplicationController to
-" application_controller
-nmap <leader>f :Rg<cr>
+
+" Configuring Leaderf
+nmap <leader>p :Leaderf file<cr>
+nmap <leader>m :Leaderf mru<cr>
+nmap <leader>b :Leaderf buffer<cr>
+
+" Easily split off a new vertical split window
+nmap <leader>v :vsplit<cr>
+
+" some tab shortcuts to help switching around
+nmap <leader>h :tabprevious<cr>
+nmap <leader>l :tabnext<cr>
+nmap <leader>g :Gstatus<cr>
+
+" If you want to remap selection from leaderf results to up and down arrow
+"let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
+
+" let g:Lf_WindowPosition = 'popup'
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+noremap <leader>f :<C-U><C-R>=printf("Leaderf! rg -e ")<CR>
+" search visually selected text literally
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap go :<C-U>Leaderf! rg --recall<CR>
 
 "command! -bang -nargs=* Rg
 "  \ call fzf#vim#grep(
 "  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
 "  \   fzf#vim#with_preview(), <bang>0)
+
+nmap <leader>n <Plug>(GitGutterNextHunk)

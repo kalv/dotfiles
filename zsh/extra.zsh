@@ -12,3 +12,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #source ~/.dotfiles/bin/tmuxinator.zsh
+#
+
+# Ensure that core doesn't inline perform jobs
+export DISABLE_INLINE_JOBS=1

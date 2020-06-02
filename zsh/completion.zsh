@@ -1,4 +1,4 @@
-cdpath=(~/src/github.com/Shopify)
+cdpath=(~/src/github.com/Shopify ~/Development/apps/)
 setopt auto_cd
 
 autoload -U compinit
