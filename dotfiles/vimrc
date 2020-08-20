@@ -43,6 +43,10 @@ Plug 'altercation/vim-colors-solarized'
 " handle ruby ends
 Plug 'tpope/vim-endwise'
 
+" handle running of tests in files
+Plug 'vim-test/vim-test'
+Plug 'tpope/vim-dispatch'
+
 " -----------------
 " LANGUAGES
 " -----------------
@@ -85,10 +89,10 @@ set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
 set nowrap                        " don't wrap lines
-set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
-"set list                          " Show invisible characters
+set tabstop=2                     " a tab is two spaces
+" set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
 
 set hlsearch    " highlight matches
@@ -192,69 +196,6 @@ set splitright
 " don't bind git gutter keys as they clash with custom keybindings
 let g:gitgutter_map_keys = 0
 
-" cucumber mappings
-" map <leader>c :call RunCurrentCuke()<CR>
-" map <leader>w :call RunWipCuke()<CR>
-
-function! RunCurrentCuke()
-  if InCukeFile()
-    let l:command = "cucumber -r features " . @%
-    call SetLastTestCommand(l:command)
-    call RunTestCmd(l:command)
-  endif
-endfunction
-
-function! RunWipCuke()
-  if InCukeFile()
-    let l:command = "cucumber -r features " . @% . " --profile=wip"
-    call SetLastTestCommand(l:command)
-    call RunTestCmd(l:command)
-  endif
-endfunction
-
-function! InCukeFile()
-  return match(expand("%"), ".feature$") != -1
-endfunction
-
-" rspec mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>r :call RunLastTest()<CR>
-
-function! RunCurrentSpecFile()
-  if InSpecFile()
-    let l:command = "rspec " . @%
-    call SetLastTestCommand(l:command)
-    call RunTestCmd(l:command)
-  endif
-endfunction
-
-function! RunNearestSpec()
-  if InSpecFile()
-    let l:command = "rspec " . @% . ":" . line(".")
-    call SetLastTestCommand(l:command)
-    call RunTestCmd(l:command)
-  endif
-endfunction
-
-function! RunLastTest()
-  if exists("t:last_test_command")
-    call RunTestCmd(t:last_test_command)
-  endif
-endfunction
-
-function! InSpecFile()
-  return match(expand("%"), "_spec.rb$") != -1
-endfunction
-
-function! SetLastTestCommand(command)
-  let t:last_test_command = a:command
-endfunction
-
-function! RunTestCmd(command)
-  execute ":w\|!" . a:command
-endfunction
-
 " Ctrl-d to replace the highligted text with something
 nnoremap <c-d> :%s///g<left><left>
 
@@ -264,7 +205,7 @@ autocmd BufWritePre * StripWhitespace
 let g:move_key_modifier = 'C'
 
 function! ZiplineChecks()
-  " let g:syntastic_ruby_checkers          = ['reek', 'rubocop', 'mri']
+  " let g:syntastic_ruby_checkers          = ['rubocop', 'mri']
   " let g:syntastic_ruby_rubocop_exec      = '/Users/kalv/.rvm/gems/ruby-2.4.1/bin/rubocop'
 endfunction
 
@@ -295,6 +236,9 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '▲'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_open_list = 1
+" Wrap the lines in the quickfix window
+autocmd FileType qf setlocal wrap
 
 " only check syntax on switching to normal
 " let g:ale_lint_on_text_changed = 'normal'
@@ -376,7 +320,6 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 " Configuring Leaderf
 nmap <leader>p :Leaderf file<cr>
 nmap <leader>m :Leaderf mru<cr>
-nmap <leader>b :Leaderf buffer<cr>
 
 " Easily split off a new vertical split window
 nmap <leader>v :vsplit<cr>
@@ -402,3 +345,45 @@ noremap go :<C-U>Leaderf! rg --recall<CR>
 "  \   fzf#vim#with_preview(), <bang>0)
 
 nmap <leader>n <Plug>(GitGutterNextHunk)
+
+" TEST: later implement vim-test
+
+" Handling of dev test runner
+"function! RunCurrentTestFile()
+"  if InTestFile()
+"    let l:command = "/opt/dev/bin/dev test " . @%
+"    call SetLastTestCommand(l:command)
+"    call RunTestCmd(l:command)
+"  endif
+"endfunction
+"
+"function! RunNearestTest()
+"  if InTestFile()
+"    let l:command = "/opt/dev/bin/dev test " . @% . ":" . line(".")
+"    call SetLastTestCommand(l:command)
+"    call RunTestCmd(l:command)
+"  endif
+"endfunction
+"
+"function! RunTestCmd(command)
+"  execute ":w\|!" . a:command
+"endfunction
+"
+"function! SetLastTestCommand(command)
+"  let t:last_test_command = a:command
+"endfunction
+"
+"function! InTestFile()
+"  return match(expand("%"), "_test.rb$") != -1
+"endfunction
+
+" test mappings
+map <Leader>a :TestFile<CR>
+map <Leader>t :TestNearest<CR>
+map <Leader>r :TestLast<CR>
+
+" customize vim-test
+let test#ruby#minitest#executable = '/opt/dev/bin/dev test'
+
+let test#strategy = "dispatch"
+
