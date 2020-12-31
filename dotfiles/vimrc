@@ -126,7 +126,7 @@ let mapleader=" "
 
 " set up the colors
 " set background=light
-colorscheme gruvbox
+colorscheme solarized
 set background=dark
 " set termguicolors
 
