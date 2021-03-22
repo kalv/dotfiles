@@ -387,3 +387,6 @@ let test#ruby#minitest#executable = '/opt/dev/bin/dev test'
 
 let test#strategy = "dispatch"
 
+" Turn off fonts in vim leader F
+let g:Lf_ShowDevIcons = 0
+
